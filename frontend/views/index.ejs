@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>geez</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="static/css/style.css">
+
+    <link rel="stylesheet" type="text/css"
+    href="https://cdn.datatables.net/v/dt/jq-3.3.1/dt-1.10.23/r-2.2.7/datatables.min.css"/>
+     <script type="text/javascript"
+     src="https://cdn.datatables.net/v/dt/jq-3.3.1/dt-1.10.23/r-2.2.7/datatables.min.js"></script>
+
+    <script type="text/javascript" charset="utf8"
+        src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.min.js"></script>
+    <script type="text/javascript" charset="utf8"
+        src="https://cdn.datatables.net/plug-ins/1.10.21/sorting/datetime-moment.js"></script>
+</head>
+<body class="dracula">
+    <div class="content">
+        <div class="topbar">
+            <a style="font-style: italic" class="topbar-item">geez</a>
+            <div class="themes">
+                <select class="topbar-item" id="themes">
+                    <optgroup label="Theme"></optgroup>
+                    <option value="dracula">Dracula</option>
+                    <option value="dolch">Dolch</option>
+                    <option value="oblivion">Oblivion</option>
+                    <option value="hagoromo">Oblivion Hagoromo</option>
+                    <option value="dark">Dark</option>
+                    <option value="ninezerozeronine">9009</option>
+                    <option value="muted">Muted</option>
+                </select>
+            </div>
+        </div>
+        <div class="results">
+            <table id="topics">
+                <thead>
+                    <tr>
+                        <th class="">Author</th>
+                        <th class="">Category</th>
+                        <th class="">Title</th>
+                        <th class="">Index</th>
+                        <th style="white-space: nowrap" class="">Last post</th>
+                        <!--
+                        <th title="Last time the first post was updated.">Latest update of first Post</th>
+                        <th title="Last time the author posted a new comment.">Lastest comment by Author</th>
+                        -->
+                    </tr>
+                </thead>
+                <tbody>
+                    <% if ( topics.length > 0 ) { %>
+                        <% topics.forEach(function(topic, index) { %>
+                    <tr class="<%= topic.category %>">
+                        <td><%= topic.author %></td>
+                        <td class="center-text "><%= topic.category %></td>
+                        <td><a href="https://geekhack.org/index.php?topic=<%= topic.id %>"><%= topic.title %></a></td>
+                        <td class="timestamp center-text"><%= topic.id %></td>
+                        <td class="timestamp center-text"><%= topic.latest_comment %></td>
+                        <!--
+                        <td class="timestamp center-text"></td>
+                        <td class="timestamp center-text"></td>
+                        -->
+                    </tr>
+                        <% }) %>
+                    <% } %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function () {
+            $.fn.dataTable.moment('M/D/YYYY, h:mm:ss A', true);
+            var table = $('#topics').DataTable({
+                pageLength: 50,
+                order: [3, "des"],
+                responsive: true,
+                columnDefs: [
+                    { responsivePriority: 4, targets: 0 },
+                    { responsivePriority: 5, targets: 1 },
+                    { responsivePriority: 1, targets: 2 },
+                    { responsivePriority: 2, targets: 3 },
+                    { responsivePriority: 3, targets: 4 },
+                ],
+                autoWidth: false
+            });
+        });
+    </script>
+    <script>
+        var themes = document.getElementById("themes");
+        themes.addEventListener("change", function () {
+            document.body.className = themes.value;
+        });
+    </script>
+</body>
+</html>
