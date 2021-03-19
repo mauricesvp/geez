@@ -1,0 +1,175 @@
+.dracula {
+    --alpha-base: #44475a;
+    --color-mod-base: #282a36;
+    --alpha-legend: #f8f8f2;
+ }
+
+.dolch {
+    --alpha-base: #67635b;
+    --color-mod-base: #393b3b;  /* N9 */
+    --alpha-legend: #e1dbd1;
+}
+
+.oblivion {
+    --alpha-base: #63696a;
+    --color-mod-base: #464746;
+    --alpha-legend: #c8c3b8;
+}
+
+.hagoromo {
+    --alpha-base: #e1dbd1;
+    --color-mod-base: #464746;
+    --alpha-legend: #63696a;
+}
+
+.dark {
+    --alpha-base: #393b3b;
+    --color-mod-base: #393b3b;
+    --alpha-legend: #171718;    /* CR */
+}
+
+.ninezerozeronine {
+    --alpha-base: #d8d2c3;      /* L9 */
+    --color-mod-base: #aca693;  /* U9 */
+    --alpha-legend: #171718;    /* CR */
+}
+
+.muted {
+    --alpha-base: #d9d9d6;      /* Cool Gray C1 */
+    --color-mod-base: #b1b3b3;  /* Cool Gray C5 */
+    --alpha-legend: #171718;    /* CR */
+}
+
+body {
+    background-color: var(--color-mod-base);
+    color: var(--alpha-legend);
+    margin: 0 auto;
+    font-family: "Helvetica", Arial, sans-serif;
+    max-width: 1000px;
+}
+
+.content {
+    color: var(--alpha-legend);
+    background-color: var(--color-mod-base);
+}
+
+.topbar {
+    width: 100%;
+    border-bottom: 5px solid var(--alpha-base);
+    overflow: hidden;
+    align-items: center;
+}
+
+.topbar-item {
+    margin: 10px 0;
+}
+
+.topbar a {
+    font-size: 30px;
+    text-decoration: none;
+    color: var(--alpha-legend);
+}
+
+.topbar a:visited {
+    text-decoration: none;
+    color: var(--alpha-legend);
+}
+
+.themes {
+    display: inline;
+    float: right;
+    margin: auto 0;
+}
+
+select {
+    background-color: var(--alpha-base);
+    color: var(--alpha-legend);
+}
+
+input {
+    background-color: var(--alpha-base);
+    color: var(--alpha-legend);
+}
+
+a.paginate_button {
+    background-color: var(--alpha-base) !important;
+    color: var(--alpha-legend) !important;
+}
+
+a.paginate_button:hover {
+    background-color: var(--alpha-base) !important;
+    color: var(--alpha-legend) !important;
+}
+
+a.paginate_button.current {
+    background-color: var(--alpha-base) !important;
+    color: var(--alpha-legend) !important;
+}
+
+.dataTables_info {
+    color: var(--alpha-legend) !important;
+}
+
+label {
+    color: var(--alpha-legend);
+}
+
+table.dataTable thead th, table.dataTable thead td {
+    padding: 5px 15px !important;
+}
+
+table.dataTable tbody th, table.dataTable tbody td {
+    padding: 3px 7px !important;
+}
+
+table, td, th {
+    background: var(--alpha-base);
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+table {
+    width: 100%;
+}
+
+.timestamp {
+    font-size: 13px;
+}
+
+.center-text {
+    text-align: center;
+}
+
+.left-text {
+    text-align: left;
+}
+
+tr td a {
+    text-decoration: none;
+    color: var(--alpha-legend);
+}
+
+tr td a:hover {
+    color: var(--color-mod-base);
+    font-style: italic;
+}
+
+table tr th .pink {
+    color: #ff79c6;
+}
+
+table tr th .purple {
+    color: #bd93f9;
+}
+
+table tr th .cyan {
+    color: #8be9fd;
+}
+
+table tr th .yellow {
+    color: #f1fa8c;
+}
+
+table tr th .green {
+    color: #50fa7b;
+}
