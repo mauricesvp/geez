@@ -26,7 +26,7 @@ def get_date(soup: BeautifulSoup) -> float:
 
 
 def date_conv(date_str: str) -> float:
-    date = datetime.strptime(date_str, "%a, %d %B %Y, %X") + timedelta(hours=7)
+    date = datetime.strptime(date_str, "%a, %d %B %Y, %X") + timedelta(hours=6)
     return date.timestamp()
 
 
