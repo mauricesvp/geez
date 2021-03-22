@@ -173,3 +173,18 @@ table tr th .yellow {
 table tr th .green {
     color: #50fa7b;
 }
+
+.footer-link {
+    width: 200px;
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+}
+
+.footer-link a {
+    text-decoration: none;
+    border: 2px solid var(--alpha-legend);
+    color: var(--alpha-legend);
+    padding: 0.5rem;
+    margin: 0 0.5rem;
+}
