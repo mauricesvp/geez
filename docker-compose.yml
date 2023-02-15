@@ -4,7 +4,7 @@ services:
         build: frontend/
         expose:
             - "8080"
-        restart: "unless-stopped"
+        restart: "always"
 
     nginx:
         image: nginx:1.19
@@ -15,7 +15,7 @@ services:
         ports:
             - "80:80"
             - "443:443"
-        restart: "unless-stopped"
+        restart: "always"
         command: "/bin/sh -c 'while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g \"daemon off;\"'"
 
     certbot:
@@ -23,12 +23,12 @@ services:
         volumes:
             - ./data/certbot/conf:/etc/letsencrypt
             - ./data/certbot/www:/var/www/certbot
-        restart: "unless-stopped"
+        restart: "always"
         entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
 
     backend:
         build: backend/
-        restart: "unless-stopped"
+        restart: "always"
 
     mongodb:
         image: mongo
@@ -36,7 +36,7 @@ services:
             - ./mongo-data:/data/db:rw
         environment:
             - MONGO_DATA_DIR=/data/db/geezdb
-        restart: "unless-stopped"
+        restart: "always"
 
 volumes:
   mongo-data:
